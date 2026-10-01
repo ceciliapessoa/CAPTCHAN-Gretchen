@@ -1,0 +1,322 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #eeeeee;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================
+   CONTAINER DO CAPTCHA
+========================================= */
+
+.captcha {
+
+    width: 420px;
+
+    background: white;
+
+    border: 1px solid #cccccc;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+}
+
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.cabecalho {
+
+    padding: 14px 16px;
+
+    background: #4285d4;
+
+    color: white;
+
+}
+
+
+.cabecalho p {
+
+    margin: 0;
+
+    font-size: 15px;
+
+}
+
+
+.cabecalho h1 {
+
+    margin: 2px 0 0;
+
+    font-size: 22px;
+
+}
+
+
+/* =========================================
+   ÁREA DA IMAGEM
+========================================= */
+
+.imagem-container {
+
+    position: relative;
+
+    width: 100%;
+
+    /*
+        A imagem é 800 x 800.
+
+        Portanto o espaço também será quadrado.
+    */
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+   IMAGEM
+========================================= */
+
+.imagem-container img {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    /*
+        Como a imagem é 800 x 800,
+        ela preencherá exatamente o espaço.
+    */
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+/* =========================================
+   MATRIZ 4 x 4
+========================================= */
+
+#grade {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-rows: repeat(4, 1fr);
+
+    z-index: 2;
+
+}
+
+
+/* =========================================
+   QUADRADOS
+========================================= */
+
+.quadrado {
+
+    /*
+        Cada quadrado terá:
+
+        1/4 da largura
+        1/4 da altura
+
+        Como a imagem é quadrada,
+        os quadrados também serão quadrados.
+    */
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    background: transparent;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    transition:
+        background 0.15s,
+        border 0.15s;
+
+}
+
+
+/* Quando passa o mouse */
+
+.quadrado:hover {
+
+    background: rgba(66, 133, 212, 0.18);
+
+}
+
+
+/* =========================================
+   IMAGEM SELECIONADA
+========================================= */
+
+.quadrado.selecionado {
+
+    background: rgba(66, 133, 212, 0.45);
+
+    border: 4px solid #4285d4;
+
+}
+
+
+/* =========================================
+   IMAGEM CORRETA
+========================================= */
+
+.quadrado.correto {
+
+    background: rgba(52, 168, 83, 0.45);
+
+    border: 4px solid #34a853;
+
+}
+
+
+/* =========================================
+   IMAGEM INCORRETA
+========================================= */
+
+.quadrado.incorreto {
+
+    background: rgba(234, 67, 53, 0.45);
+
+    border: 4px solid #ea4335;
+
+}
+
+
+/* =========================================
+   RODAPÉ
+========================================= */
+
+.rodape {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 12px;
+
+    border-top: 1px solid #dddddd;
+
+}
+
+
+/* =========================================
+   BOTÃO ATUALIZAR
+========================================= */
+
+#atualizar {
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    color: #555555;
+
+}
+
+
+/* =========================================
+   BOTÃO VERIFICAR
+========================================= */
+
+#verificar {
+
+    padding: 9px 20px;
+
+    background: #4285d4;
+
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+#verificar:hover {
+
+    background: #3367b1;
+
+}
+
+
+/* =========================================
+   RESULTADO
+========================================= */
+
+#resultado {
+
+    min-height: 25px;
+
+    margin: 0;
+
+    padding: 5px 10px 12px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+
+.resultado-sucesso {
+
+    color: #188038;
+
+}
+
+
+.resultado-erro {
+
+    color: #d93025;
+
+}
